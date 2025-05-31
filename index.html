@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aelthèque Dili | Resmi Tanıtım</title>
+  <style>
+    :root{
+      --bg:#f5f5f8;
+      --txt:#222;
+      --accent:#7a4bea;
+    }
+    body{
+      margin:0; font-family:"Segoe UI",Tahoma,Geneva,Verdana,sans-serif;
+      background:var(--bg); color:var(--txt); line-height:1.6;
+    }
+    header{
+      background:var(--accent); color:#fff; padding:1.5rem 2rem;
+      box-shadow:0 4px 12px rgba(0,0,0,.15);
+    }
+    header h1{margin:0;font-size:2.2rem;letter-spacing:0.5px;}
+    nav{display:flex;flex-wrap:wrap;gap:1rem;margin-top:0.5rem;}
+    nav a{color:#fff;text-decoration:none;font-weight:500;position:relative;}
+    nav a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:#fff;transition:.3s;}
+    nav a:hover::after{width:100%;}
+    section{padding:2rem 1.2rem;max-width:960px;margin:auto;}
+    h2{color:var(--accent);border-bottom:3px solid var(--accent);display:inline-block;padding-bottom:4px;margin-top:0;}
+    table{width:100%;border-collapse:collapse;margin-top:1rem;}
+    th,td{border:1px solid #ddd;padding:0.6rem;text-align:left;}
+    th{background:#eee;}
+    footer{background:#222;color:#ccc;text-align:center;padding:1.2rem;font-size:.9rem;}
+    .timeline{border-left:3px solid var(--accent);padding-left:1rem;list-style:none;}
+    .timeline li{margin-bottom:1.2rem;position:relative;}
+    .timeline li::before{content:"";position:absolute;left:-9px;top:3px;width:12px;height:12px;background:var(--accent);border-radius:50%;}
+    .toggle-btn{position:fixed;right:1rem;bottom:1rem;background:var(--accent);border:none;border-radius:50%;width:48px;height:48px;color:#fff;font-size:1.3rem;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.25);}
+    .dark{--bg:#17171b;--txt:#f5f5f8;--accent:#a680ff;}
+    .dark table th{background:#333;}
+  </style>
+  <script>
+    function toggleMode(){document.body.classList.toggle('dark');}
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Aelthèque Dili</h1>
+    <nav>
+      <a href="#hakkinda">Hakkında</a>
+      <a href="#alfabe">Alfabe</a>
+      <a href="#dilbilgisi">Dilbilgisi</a>
+      <a href="#ornekler">Örnekler</a>
+      <a href="#tarih">Tarihçe</a>
+      <a href="#kaynakca">Kaynakça</a>
+    </nav>
+  </header>
+
+  <section id="hakkinda">
+    <h2>Hakkında</h2>
+    <p><strong>Aelthèque</strong> (okunuşu: <em>yel‑tek</em>), Orta Alp platolarında M.S. 870–1250 yılları arasında
+      <em>Aelthoi</em> kabilesinin bir alt kolu tarafından konuşulan, özgün bir fonolojiye sahip
+      sentetik bir dildir. Eldeki veriler, dilin <em>Codex Archeon</em> adlı 11. yüzyıl ilüstrasyonlu el yazması
+      sayesinde günümüze ulaşan 7.800 civarı kelimeden oluşan zengin bir söz varlığı olduğunu gösterir.</p>
+    <p>Modern rekonstrüksiyon çalışmaları, dilin Cermen‑Latin temelli olmadığı; özgün aglütinatif yapısıyla
+      Kafkas dillerine tipolojik olarak daha yakın durduğunu ortaya koymuştur. Aelthèque, 1978 yılında UNESCO
+      tarafından “<em>kültürel açıdan kritik öneme sahip soyu tükenmiş diller</em>” listesine alınmıştır.</p>
+  </section>
+
+  <section id="alfabe">
+    <h2>Alfabe ve Ses Değerleri</h2>
+    <p>Aelthèque, 18 temel harften oluşur. Harfler <em>Gümüş Yazı</em> (Écryt Argenté) adı verilen açılı hat sanatıyla
+      yazılır. Türkçe karşılıkları ve IPA gösterimleri aşağıdadır.</p>
+    <table>
+      <tr><th>Aelthèque</th><th>IPA</th><th>Türkçe Karşılığı</th><th>Açıklama</th></tr>
+      <tr><td>Å</td><td>/a/</td><td>a</td><td>Geniş, yuvarlak a</td></tr>
+      <tr><td>Æ</td><td>/æ/</td><td>e/ä</td><td>Açık e</td></tr>
+      <tr><td>ß</td><td>/β/</td><td>b‑v</td><td>Dudaksı sürtünmeli</td></tr>
+      <tr><td>Đ</td><td>/ð/</td><td>th‑yumuşak d</td><td>Diş‑aralıklı</td></tr>
+      <tr><td>Ǝ</td><td>/ɛ/</td><td>e</td><td>Kapalı e</td></tr>
+      <tr><td>Ħ</td><td>/ħ/</td><td>h</td><td>Boğazdan hırıltılı</td></tr>
+      <tr><td>Ī</td><td>/iː/</td><td>ı/i (uzun)</td><td>Uzun ince i</td></tr>
+      <tr><td>Ŋ</td><td>/ŋ/</td><td>ng</td><td>Artdamaksı burun</td></tr>
+      <tr><td>Ɵ</td><td>/θ/</td><td>t (ince)</td><td>Dişsız th</td></tr>
+      <tr><td>Ø</td><td>/ø/</td><td>ö</td><td>Yuvarlak orta ön</td></tr>
+      <tr><td>Ř</td><td>/ʒ/</td><td>j</td><td>Sürtünmeli yumuşak j</td></tr>
+      <tr><td>Ṡ</td><td>/ʃ/</td><td>ş</td><td>Artdamaksı s</td></tr>
+      <tr><td>Ś</td><td>/s/</td><td>s (ince)</td><td>Dişsonrası s</td></tr>
+      <tr><td>Ṯ</td><td>/t͡s/</td><td>ts</td><td>İki aşamalı</td></tr>
+      <tr><td>Û</td><td>/uː/</td><td>u (uzun)</td><td>Uzun yuvarlak arka</td></tr>
+      <tr><td>Ẇ</td><td>/w/</td><td>v/w</td><td>Yarı‑ünlü</td></tr>
+      <tr><td>Ẏ</td><td>/j/</td><td>y</td><td>Kaynasık damaksı</td></tr>
+      <tr><td>Ƶ</td><td>/z/</td><td>z</td><td>Titreşimli</td></tr>
+    </table>
+  </section>
+
+  <section id="dilbilgisi">
+    <h2>Dilbilgisi Özeti</h2>
+    <ul>
+      <li><strong>Yapı:</strong> Aglütinatif, <abbr title="özne‑nesne‑yüklem">SOV</abbr> cümle dizilişi.</li>
+      <li><strong>Çekim:</strong> İsimlerde 6 hâl (<em>temel, yönelme, ayrılma, araç, yer, sahiplik</em>), fiillerde 3 zaman, 2 kip.</li>
+      <li><strong>Ünlü Uyumu:</strong> Ön/arka & yuvarlak/yuvarlaksız uyumu Türkçedeki büyük ünlü uyumuna benzer, ancak <em>Ə‑kuralı</em> ile kesilir.</li>
+      <li><strong>Negasyon:</strong> Fiil köküne getirilen <em>-no</em> öneki.</li>
+      <li><strong>Birleşik Fiil:</strong> Yardımcı fiil <em>“tâv”</em> (etmek) ile kurulabilir.</li>
+    </ul>
+  </section>
+
+  <section id="ornekler">
+    <h2>Örnek Cümleler</h2>
+    <p><em>Ẏolúrēṁ thīsav.</em> — <strong>Seni seviyorum.</strong></p>
+    <p><em>Ænå Ẇarîk ßolnâv?</em> — <strong>Buraya nasıl geldin?</strong></p>
+    <p><em>Øm Ṡēdrûn‑no řan.</em> — <strong>Şarkı söyle<span style="white-space:nowrap">‑mıyorum</span>.</strong></p>
+    <p><em>Ǝsár Ṯiđ‑tâv.</em> — <strong>Kitap oku<span style="white-space:nowrap">‑yorum</span>.</strong></p>
+  </section>
+
+  <section id="tarih">
+    <h2>Tarihçe & Coğrafi Yayılım</h2>
+    <ul class="timeline">
+      <li><strong>~ M.S. 870</strong> — Hochwald Vadisi’nde (günümüz Lihtenştayn) <em>Aelthoi</em> kabilesi arasında doğuşu.</li>
+      <li><strong>1024</strong> — Keşiş Cedric von Aelthen, <em>Codex Archeon</em>'u kaleme alarak alfabe ve grameri sistemleştirir.</li>
+      <li><strong>1189</strong> — "Gümüş Çağ": Dil, 14 manastır okulunda eğitim dili olur; ~12.000 konuşura ulaşır.</li>
+      <li><strong>1258</strong> — "Kara Kar" Kıtlığı; halk göçü sonrası dil Lehçe‑Alemannic lehçeleriyle karışır.</li>
+      <li><strong>1523</strong> — Son tekdilli konuşur <em>Ermine von Grath</em>’ın ölümü; dil gündelik kullanımdan çekilir.</li>
+      <li><strong>1904</strong> — Dilbilimci Prof. Heinrich Köhler, Zürih Ulusal Kütüphanesi’nde Codex Archeon’u yeniden keşfeder.</li>
+      <li><strong>1978</strong> — UNESCO, Aelthèque’yi “soyu tükenmiş” olarak tescil eder; restorasyon projesi başlatılır.</li>
+    </ul>
+  </section>
+
+  <section id="kaynakca">
+    <h2>Kaynakça</h2>
+    <ol>
+      <li>von Aelthen, C. (1024) <em>Codex Archeon</em>.</li>
+      <li>Köhler, H. (1906) “Die Lautsystem des Aelthèque”, <em>Alpine Philology Quarterly</em>, 12(3), 201‑245.</li>
+      <li><em>Aelthèque Dil Çalışmaları Enstitüsü Yıllığı</em>, Cilt 5 (2024).</li>
+      <li>UNESCO Kayıp Diller Raporu, Bölüm IV‑14 (1978).</li>
+    </ol>
+  </section>
+
+  <footer>
+    © 2025 Aelthèque Dil Çalışmaları Enstitüsü — Tüm hakları saklıdır.
+  </footer>
+
+  <button class="toggle-btn" onclick="toggleMode()" title="Işık/Karanlık Mod">☾</button>
+</body>
+</html>
