@@ -267,9 +267,10 @@
             backdrop-filter: blur(20px);
             box-shadow: var(--shadow-lg);
             border-bottom: 1px solid var(--glass-border);
-            header.hidden {
-                transform: translateY(-100%);
-}
+        }
+
+        header.hidden {
+            transform: translateY(-100%);
         }
 
         .header-content {
@@ -1104,6 +1105,31 @@
             transform: scale(0.95);
         }
 
+        /* Menu Toggle */
+        .menu-toggle {
+            position: fixed;
+            top: var(--space-md);
+            right: var(--space-md);
+            width: 40px;
+            height: 40px;
+            background: var(--tertiary-gradient);
+            border: none;
+            border-radius: var(--radius-full);
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: all var(--transition);
+        }
+
+        .menu-toggle:active {
+            transform: scale(0.95);
+        }
+
         /* Quick Access Menu */
         .quick-menu {
             position: fixed;
@@ -1594,6 +1620,11 @@
 
     <!-- Progress Bar -->
     <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Menu Toggle -->
+    <button class="menu-toggle" id="menuToggle" onclick="toggleMenuBar()">
+        <i class="fas fa-times"></i>
+    </button>
 
     <!-- Animated Background -->
     <div class="bg-animation"></div>
@@ -3689,6 +3720,7 @@ window.addEventListener('scroll', function() {
 });
         let currentTheme = localStorage.getItem('theme') || 'light';
         let isQuickMenuOpen = false;
+        let isMenuClosed = false;
 
         // Initialize page
         document.addEventListener('DOMContentLoaded', function() {
@@ -3804,6 +3836,22 @@ window.addEventListener('scroll', function() {
             } else {
                 quickMenu.classList.remove('active');
                 icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Toggle header visibility
+        function toggleMenuBar() {
+            const header = document.querySelector('header');
+            const menuToggle = document.getElementById('menuToggle');
+
+            isMenuClosed = !isMenuClosed;
+
+            if (isMenuClosed) {
+                header.classList.add('hidden');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            } else {
+                header.classList.remove('hidden');
+                menuToggle.innerHTML = '<i class="fas fa-times"></i>';
             }
         }
 
@@ -3994,7 +4042,13 @@ window.addEventListener('scroll', function() {
                 e.preventDefault();
                 toggleQuickMenu();
             }
-            
+
+            // Toggle menu bar with Ctrl+H
+            if (e.ctrlKey && e.key === 'h') {
+                e.preventDefault();
+                toggleMenuBar();
+            }
+
             // Focus search with Ctrl+F
             if (e.ctrlKey && e.key === 'f') {
                 e.preventDefault();
@@ -4177,6 +4231,7 @@ window.addEventListener('scroll', function() {
         Klavye kısayolları:
         • Ctrl+D: Tema değiştir
         • Ctrl+M: Hızlı menü
+        • Ctrl+H: Menü
         • Ctrl+F: Arama
         
         Þornåv-yn ljós! ⚡
