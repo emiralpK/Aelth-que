@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aelthèque Admin Paneli</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f4f4f4;
+        }
+        header {
+            background: #222;
+            color: #fff;
+            padding: 12px 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .login-form {
+            max-width: 400px;
+            margin: 60px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .login-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background: #4CAF50;
+            color: white;
+            width: 100%;
+        }
+        .admin-panel {
+            display: none;
+        }
+        .nav {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .nav button {
+            background: #3498db;
+            color: white;
+            flex: none;
+        }
+        .nav button.logout {
+            margin-left: auto;
+            background: #e74c3c;
+        }
+        .card {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Aelthèque Admin Paneli</h1>
+</header>
+<div class="container">
+    <div class="login-form" id="loginForm">
+        <h2>Giriş Yap</h2>
+        <input type="text" id="username" placeholder="Kullanıcı adı">
+        <input type="password" id="password" placeholder="Şifre">
+        <button class="btn-primary" onclick="login()">Giriş</button>
+    </div>
+    <div class="admin-panel" id="adminPanel">
+        <div class="nav">
+            <button onclick="showSection('dashboard')"><i class="fas fa-chart-line"></i> Gösterge</button>
+            <button onclick="showSection('users')"><i class="fas fa-users"></i> Kullanıcılar</button>
+            <button onclick="showSection('content')"><i class="fas fa-file-alt"></i> İçerik</button>
+            <button onclick="showSection('settings')"><i class="fas fa-cogs"></i> Ayarlar</button>
+            <button class="logout" onclick="logout()">Çıkış</button>
+        </div>
+        <div id="dashboard" class="section card">
+            <h3>İstatistikler</h3>
+            <p>Ziyaretçi sayısı: <span id="visits">5234</span></p>
+            <p>Son güncelleme: <span id="updateDate">2025-05-24</span></p>
+        </div>
+        <div id="users" class="section card" style="display:none;">
+            <h3>Kullanıcı Yönetimi</h3>
+            <table style="width:100%; border-collapse:collapse;">
+                <thead>
+                    <tr><th>İsim</th><th>E-posta</th><th>Rol</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Admin</td><td>admin@adce.org.tr</td><td>Yönetici</td></tr>
+                    <tr><td>Editor</td><td>editor@adce.org.tr</td><td>Editör</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="content" class="section card" style="display:none;">
+            <h3>İçerik Yönetimi</h3>
+            <p>Çevrimiçi kaynak sayısı: 120</p>
+            <p>Yayın bekleyen makaleler: 5</p>
+        </div>
+        <div id="settings" class="section card" style="display:none;">
+            <h3>Site Ayarları</h3>
+            <label>
+                Site Başlığı
+                <input type="text" value="Aelthèque Dili Dijital Arşivi">
+            </label>
+            <button class="btn-primary" style="margin-top:10px; width:auto;">Kaydet</button>
+        </div>
+    </div>
+</div>
+<script>
+function login() {
+    const user = document.getElementById('username').value;
+    const pass = document.getElementById('password').value;
+    if (user === 'admin' && pass === 'admin') {
+        document.getElementById('loginForm').style.display = 'none';
+        document.getElementById('adminPanel').style.display = 'block';
+    } else {
+        alert('Giriş başarısız');
+    }
+}
+function logout() {
+    document.getElementById('adminPanel').style.display = 'none';
+    document.getElementById('loginForm').style.display = 'block';
+}
+function showSection(id) {
+    document.querySelectorAll('.section').forEach(sec => sec.style.display = 'none');
+    document.getElementById(id).style.display = 'block';
+}
+</script>
+</body>
+</html>
